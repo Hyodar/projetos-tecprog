@@ -2,19 +2,19 @@
 #ifndef PESSOA_H_
 #define PESSOA_H_
 
+#include <string>
+using namespace std;
+
 #include "Universidade.h"
+#include "Data.h"
 
 class Pessoa {
 
     private:
-        int diaP;
-        int mesP;
-        int anoP;
-
-        int idadeP;
-        char nomeP[30];
-
-        Universidade* pUnivFiliado;
+        Data dataNasc;
+        int idade;
+        string nome;
+        Universidade* univFiliado;
 
     public:
         Pessoa();
@@ -26,7 +26,9 @@ class Pessoa {
         void init(int diaNasc, int mesNasc, int anoNasc, const char* nome = "");
         
         int getIdade();
-        void setIdade(int idade);
+
+        string getNome();
+        void setNome(const char* nome);
 
         Universidade* getUnivFiliado();
         void setUnivFiliado(Universidade* universidade);

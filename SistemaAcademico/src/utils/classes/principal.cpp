@@ -3,13 +3,14 @@
 
 #include <ctime>
 
-#include "Principal.h"
+#include "principal.h"
 
 // Function declarations:
 
 // ---------------------------------------------------------------------------
 
-Principal::Principal() {
+Principal::Principal() : simao(), einstein(), newton() {
+
     simao.init(3, 10, 1976, "Jean Simao");
     einstein.init(14, 3, 1879, "Albert Einstein");
     newton.init(4, 1, 1643, "Isaac Newton");

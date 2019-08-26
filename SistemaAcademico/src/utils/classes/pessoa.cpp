@@ -4,17 +4,16 @@
 #include <iostream>
 #include <cstring>
 
-#include "Pessoa.h"
+#include "pessoa.h"
 
 // Function declarations:
 
 // ---------------------------------------------------------------------------
 
-void Pessoa::init(int diaNasc, int mesNasc, int anoNasc, const char* nome) {
-    diaP = diaNasc;
-    mesP = mesNasc;
-    anoP = anoNasc;
-    std::strcpy(nomeP, nome);
+void Pessoa::init(int diaNasc, int mesNasc, int anoNasc, const char* nome)
+ : dataNasc() {
+    dataNasc.init(diaNasc, mesNasc, anoNasc); 
+    this->nome = nome;
 }
 
 // ---------------------------------------------------------------------------
@@ -26,7 +25,7 @@ Pessoa::Pessoa(int diaNasc, int mesNasc, int anoNasc, const char* nome) {
 // ---------------------------------------------------------------------------
 
 Pessoa::Pessoa() {
-    init(0, 0, 0);
+    init(-1, -1, -1);
 }
 
 // ---------------------------------------------------------------------------
@@ -38,12 +37,12 @@ Pessoa::~Pessoa() {
 // ---------------------------------------------------------------------------
 
 void Pessoa::calcIdade(int diaAtual, int mesAtual, int anoAtual) {
-    idadeP = anoAtual - anoP;
+    idade = anoAtual - dataNasc.getAno();
 
-    if(mesP > mesAtual) {
-        --idadeP;
-    } else if(mesP == mesAtual && diaP > diaAtual) {
-        --idadeP;
+    if(dataNasc.getMes() > mesAtual) {
+        --idade;
+    } else if(dataNasc.getMes() == mesAtual && dataNasc.getDia() > diaAtual) {
+        --idade;
     }
     
 }
@@ -51,30 +50,42 @@ void Pessoa::calcIdade(int diaAtual, int mesAtual, int anoAtual) {
 // ---------------------------------------------------------------------------
 
 int Pessoa::getIdade() {
-    return idadeP;
+    return idade;
 }
 
 // ---------------------------------------------------------------------------
 
 void Pessoa::setIdade(int idade) {
-    idadeP = idade;
+    this->idade = idade;
+}
+
+// ---------------------------------------------------------------------------
+
+string Pessoa::getNome() {
+    return nome;
+}
+
+// ---------------------------------------------------------------------------
+
+void Pessoa::setNome(const char* nome) {
+    this->nome = nome;
 }
 
 // ---------------------------------------------------------------------------
 
 Universidade* Pessoa::getUnivFiliado() {
-    return pUnivFiliado;
+    return univFiliado;
 }
 
 // ---------------------------------------------------------------------------
 
 void Pessoa::setUnivFiliado(Universidade* universidade) {
-    pUnivFiliado = universidade;
+    univFiliado = universidade;
 }
 
 // ---------------------------------------------------------------------------
 
 void Pessoa::ondeTrabalha() {
-    std::cout << nomeP << " trabalha para a" << pUnivFiliado->getNome() << "\n";
+    std::cout << nome << " trabalha para a" << univFiliado->getNome() << "\n";
 }
 
