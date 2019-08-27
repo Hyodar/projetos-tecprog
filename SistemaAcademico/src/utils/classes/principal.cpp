@@ -1,5 +1,5 @@
 
-// Imported modules:
+// Included modules:
 
 #include <ctime>
 
@@ -24,7 +24,6 @@ Principal::Principal() : simao(), einstein(), newton() {
 
     utfpr.setNome("UTFPR");
 
-    simao.setUnivFiliado(&utfpr);
 }
 
 // ---------------------------------------------------------------------------

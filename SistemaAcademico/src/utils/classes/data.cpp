@@ -1,6 +1,14 @@
 
 #include "data.h"
 
+void Data::init(int dia, int mes, int ano) {
+    this->dia = dia;
+    this->mes = mes;
+    this->ano = ano;
+}
+
+// ---------------------------------------------------------------------------
+
 Data::Data(int dia, int mes, int ano) {
     this->init(dia, mes, ano);
 }

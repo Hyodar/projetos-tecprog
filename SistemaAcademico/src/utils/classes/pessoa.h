@@ -5,16 +5,16 @@
 #include <string>
 using namespace std;
 
-#include "Universidade.h"
-#include "Data.h"
+#include "universidade.h"
+#include "data.h"
 
 class Pessoa {
 
-    private:
-        Data dataNasc;
+    protected:
+        int id;
         int idade;
+        Data dataNasc;
         string nome;
-        Universidade* univFiliado;
 
     public:
         Pessoa();
@@ -25,15 +25,13 @@ class Pessoa {
         void calcIdade(int diaAtual, int mesAtual, int anoAtual);
         void init(int diaNasc, int mesNasc, int anoNasc, const char* nome = "");
         
-        int getIdade();
+        int getIdade() {return idade;}
 
-        string getNome();
-        void setNome(const char* nome);
+        int getId() {return id;}
+        void setId(int id) {this->id = id;}
 
-        Universidade* getUnivFiliado();
-        void setUnivFiliado(Universidade* universidade);
-
-        void ondeTrabalha();
+        string getNome() {return nome;}
+        void setNome(const char* nome) {this->nome = nome;}
 };
 
 #endif // PESSOA_H_

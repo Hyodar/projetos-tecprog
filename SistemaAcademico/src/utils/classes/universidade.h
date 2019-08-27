@@ -2,18 +2,20 @@
 #ifndef UNIVERSIDADE_H_
 #define UNIVERSIDADE_H_
 
+#include <string>
+using namespace std;
+
 class Universidade {
 
     private:
-        char nome[30];
+        string nome;
 
     public:
         Universidade(const char* nome = "");
-
         ~Universidade();
 
-        char* getNome();
-        void setNome(const char* nome);
+        string getNome() {return nome;}
+        void setNome(const char* nome) {this->nome = nome;}
 
 };
 

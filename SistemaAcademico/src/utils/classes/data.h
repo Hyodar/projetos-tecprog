@@ -14,7 +14,7 @@ class Data {
         Data();
         ~Data();
 
-        void init(int dia=-1, int mes=-1, int ano=-1);
+        void init(int dia=0, int mes=0, int ano=0);
 
         int getDia();
         void setDia(int dia);

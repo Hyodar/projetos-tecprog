@@ -2,8 +2,8 @@
 #ifndef PRINCIPAL_H_
 #define PRINCIPAL_H_
 
-#include "Pessoa.h"
-#include "Universidade.h"
+#include "pessoa.h"
+#include "universidade.h"
 
 class Principal {
 
